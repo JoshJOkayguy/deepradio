@@ -1,13 +1,14 @@
 DeepRadio = {}
 
--- The following is case sensitive.
+-- The following is case sensitive (not the categories, the jobs. "security" is a category and "Citizen" is a job).
 DeepRadio.Jobs = {
     ["security"] = {
-        ["Citizen"] = true, 
-        ["Medic"] = true
+        ["Security Officer"] = true, 
+        ["Security Sergeant"] = true
     },
     ["research"] = {
-        ["Gun Dealer"] = true
+        ["Junior Researcher"] = true,
+        ["Hazmat Researcher"] = true
     },
 }
 
