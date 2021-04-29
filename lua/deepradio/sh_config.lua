@@ -11,6 +11,7 @@ DeepRadio.Jobs = {
     },
 }
 
+-- You should add a new color for each job, otherwise it will all be white and look ugly as fuck.
 DeepRadio.ChannelColors = {
     ["security"] = Color(46,109,190),
     ["research"] = Color(167,63,31)
