@@ -4,11 +4,11 @@ DeepRadio = {}
 DeepRadio.Jobs = {
     ["security"] = {
         ["Security Officer"] = true, 
-        ["Security Sergeant"] = true
+        ["Security Sergeant"] = true,
     },
     ["research"] = {
         ["Junior Researcher"] = true,
-        ["Hazmat Researcher"] = true
+        ["Hazmat Researcher"] = true,
     },
 }
 
