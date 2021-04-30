@@ -3,6 +3,8 @@ if SERVER then
 end
 include("deepradio/sh_config.lua")
 
+if not DeepRadio then error("Deep Radio failed to initialize. This is likely just a loading error.") end
+
 local dir = "deepradio"
 
 DeepRadio.Files = {
