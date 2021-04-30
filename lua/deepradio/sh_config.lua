@@ -1,5 +1,7 @@
 DeepRadio = {}
 
+-- Don't forget your commas big guy
+
 -- The following is case sensitive (not the categories, the jobs. "security" is a category and "Citizen" is a job).
 DeepRadio.Jobs = {
     ["security"] = {
@@ -10,6 +12,11 @@ DeepRadio.Jobs = {
         ["Junior Researcher"] = true,
         ["Hazmat Researcher"] = true,
     },
+}
+
+-- Usergroups that will have full access to all channels. DM me if you have compatibility issues with this.
+DeepRadio.AdminGroups = {
+    "superadmin" = true,
 }
 
 -- You should add a new color for each job, otherwise it will all be white and look ugly as fuck.
