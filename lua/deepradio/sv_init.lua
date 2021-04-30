@@ -42,7 +42,7 @@ hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
                 net.Start("DeepRadio:SendMessage")
                     net.WriteString(ply:Name())
                        net.WriteString(DeepRadio.Prefixes[group])
---                     net.WriteString(group) -- Deprecated
+                       -- net.WriteString(group) -- Deprecated
                     net.WriteString(msg)
                 net.Send(sendTo)
             end )
