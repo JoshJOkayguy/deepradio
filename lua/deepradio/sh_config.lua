@@ -15,6 +15,7 @@ DeepRadio.Jobs = {
 }
 
 -- Usergroups that will have full access to all channels. DM me if you have compatibility issues with this.
+-- Also, if you'd like to use a "Staff on Duty" job instead just insert the job into the Jobs config table above in every category, I cba to add an easy solution for that.
 DeepRadio.AdminGroups = {
     "superadmin" = true,
 }
