@@ -32,7 +32,7 @@ hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
                     local tmname = team.GetName(tm)
                     local admin = DeepRadio.AdminGroups[v:GetUserGroup()]
 
-                    if jobs[tmname] or admin then
+                    if jobs[tmname] or admin then -- Admin check to send message 2
                         table.insert(sendTo, v)
                     end
                 end
