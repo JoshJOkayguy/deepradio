@@ -1,5 +1,3 @@
-MsgC("\n[Deep Radio]",DeepRadio.Success, " Serverside initialized.")
-
 local team = team local string = string local player = player
 
 util.AddNetworkString("DeepRadio:SendMessage")
@@ -14,6 +12,7 @@ end
 hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
     local t = ply:Team()
     local tname = team.GetName(t)
+    local isadmin = DeepRadio.AdminGroups[ply:GetUserGroup()]
 
     for group,jobs in pairs(DeepRadio.Jobs) do
         if string.StartWith(txt,"/"..group) then
@@ -23,7 +22,7 @@ hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
         end
         ::commandused::
 
-        if jobs[tname] then
+        if jobs[tname] or isadmin then -- Admin check 1
             local msg = string.sub(txt, string.len(group) + 2)
 
             local sendTo = {}
@@ -31,8 +30,9 @@ hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
                 for _,v in ipairs(player.GetAll()) do
                     local tm = v:Team()
                     local tmname = team.GetName(tm)
+                    local admin = DeepRadio.AdminGroups[v:GetUserGroup()]
 
-                    if jobs[tmname] then
+                    if jobs[tmname] or admin then
                         table.insert(sendTo, v)
                     end
                 end
@@ -48,3 +48,5 @@ hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
         end
     end
 end )
+
+MsgC("\n[Deep Radio]",DeepRadio.Success, " Serverside initialized.")
