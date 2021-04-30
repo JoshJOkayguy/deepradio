@@ -40,10 +40,10 @@ hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
 
             timer.Simple(0, function()
                 net.Start("DeepRadio:SendMessage")
-                    net.WriteString(ply:Name())
-                       net.WriteString(DeepRadio.Prefixes[group])
-                       -- net.WriteString(group) -- Deprecated
-                    net.WriteString(msg)
+                   net.WriteString(group)
+                   net.WriteString(DeepRadio.Prefixes[group])
+                   net.WriteString(ply:Name())
+                   net.WriteString(msg)
                 net.Send(sendTo)
             end )
         end
