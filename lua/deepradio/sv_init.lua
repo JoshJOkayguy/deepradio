@@ -47,6 +47,8 @@ hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
             end )
         end
     end
+        
+    return "" -- Should get the message to stop displaying.
 end )
 
 MsgC("\n[Deep Radio]",DeepRadio.Success, " Serverside initialized.")
