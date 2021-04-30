@@ -3,7 +3,9 @@ if SERVER then
 end
 include("deepradio/sh_config.lua")
 
-if not DeepRadio then error("Deep Radio failed to initialize. This is likely just a loading error.") end
+-- if not DeepRadio then error("Deep Radio failed to initialize. This is likely just a loading error.") end
+assert(DeepRadio, "Deep Radio failed to initialize. This is likely just a loading error.") -- idk if this will work but i kinda hope it does because this function looks nice.
+-- TODO test ^
 
 local dir = "deepradio"
 
