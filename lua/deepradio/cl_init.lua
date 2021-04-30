@@ -1,6 +1,7 @@
 net.Receive("DeepRadio:SendMessage", function()
-    local sender = net.ReadString()
     local chnl = net.ReadString()
+    local prfx = net.ReadString()
+    local sender = net.ReadString()
     local msg = net.ReadString()
 
     local capchnl = string.Explode("", chnl)
