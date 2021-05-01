@@ -12,44 +12,41 @@ end
 hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
     local t = ply:Team()
     local tname = team.GetName(t)
-    local isadmin = DeepRadio.AdminGroups[ply:GetUserGroup()]
+    local message
+    local cmd
+    local sendto = {}
 
-    for group,jobs in pairs(DeepRadio.Jobs) do
-        if string.StartWith(txt,"/"..group) then
-            goto commandused
-        else
-            continue
-        end
-        ::commandused::
+    do
+        local spacepos = string.find(txt, " ", 2)
+        if not spacepos then return end
 
-        if jobs[tname] or isadmin then -- Admin check 1
-            local msg = string.sub(txt, string.len(group) + 2)
+        cmd = string.sub(txt, 2, spacepos - 1)
+        
+        if not DeepRadio.Jobs[cmd] then return end
+        if not DeepRadio.Jobs[cmd][tname] then return end -- Job and command validation.
 
-            local sendTo = {}
-            do
-                for _,v in ipairs(player.GetAll()) do
-                    local tm = v:Team()
-                    local tmname = team.GetName(tm)
-                    local admin = DeepRadio.AdminGroups[v:GetUserGroup()]
+        message = string.sub(txt, spacepos + 1)
+    end
 
-                    if jobs[tmname] or admin then -- Admin check to send message 2
-                        table.insert(sendTo, v)
-                    end
-                end
+    for _,v in ipairs(player.GetAll()) do
+        do
+            local pteam = v:Team()
+            local pteam_name = team.GetName(pteam)
+
+            if DeepRadio.Jobs[cmd][pteam_name] or DeepRadio.AdminGroups[v:GetUserGroup()] then
+                table.insert(sendto, v)
             end
-
-            timer.Simple(0, function()
-                net.Start("DeepRadio:SendMessage")
-                   net.WriteString(group)
-                   net.WriteString(DeepRadio.Prefixes[group])
-                   net.WriteString(ply:Name())
-                   net.WriteString(msg)
-                net.Send(sendTo)
-            end )
         end
     end
-        
-    return "" -- Should get the message to stop displaying.
+
+    net.Start("DeepRadio:SendMessage")
+        net.WriteString(cmd)
+        net.WriteString(DeepRadio.Prefixes[cmd])
+        net.WriteString(ply:Name())
+        net.WriteString(message)
+    net.Send(sendto)
+
+    return ""
 end )
 
 MsgC("\n[Deep Radio]",DeepRadio.Success, " Serverside initialized.")
