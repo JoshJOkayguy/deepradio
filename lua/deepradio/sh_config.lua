@@ -2,7 +2,7 @@
 -- JOB GROUPS CAN __NOT__ BE MORE THAN ONE WORD.
 DeepRadio.Jobs = {
     ["security"] = {
-        ["Gun Dealer"] = true, 
+        ["Gun Dealer"] = true,
         ["Security Sergeant"] = true,
     },
     ["research"] = {
