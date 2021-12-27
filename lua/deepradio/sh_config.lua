@@ -60,7 +60,6 @@ DeepRadio.Jobs = {
 		["Chaos Insurgency Elite"] = true,
 		["Staff on Duty"] = true,
 		["SCP-079"] = true,
-		["Citizen"] = true,
     },
     ["f"] = {
         ["Security Recruit"] = true,
@@ -191,7 +190,6 @@ DeepRadio.Jobs = {
 		["Junior Security Specialist"] = true,
 		["Junior Security Medical Officer"] = true,
 		["Junior Security Medical Technician"] = true,
-		["Citizen"] = true,
     }
 }
 
