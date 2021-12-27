@@ -60,8 +60,9 @@ DeepRadio.Jobs = {
 		["Chaos Insurgency Elite"] = true,
 		["Staff on Duty"] = true,
 		["SCP-079"] = true,
+		["Citizen"] = true,
     },
-    ["fou"] = {
+    ["f"] = {
         ["Security Recruit"] = true,
 		["I.A. HRT"] = true,
 		["C.I. Infiltrator"] = true,
@@ -190,6 +191,7 @@ DeepRadio.Jobs = {
 		["Junior Security Specialist"] = true,
 		["Junior Security Medical Officer"] = true,
 		["Junior Security Medical Technician"] = true,
+		["Citizen"] = true,
     }
 }
 
@@ -204,9 +206,13 @@ DeepRadio.ChannelColors = {
     ["security"] = Color(0,150,255),
     ["research"] = Color(100,100,100),
     ["chaos"] = Color(0,175,0),
-    ["foundation"] = Color(0,150,255),
+    ["f"] = Color(0,150,255),
 	["scp"] = Color(255,225,0),
 	["classd"] = Color(255,120,0)
+}
+
+DeepRadio.CustomPrefixes = {
+	["f"] = "Foundation"
 }
 
 MsgC("\n[Deep Radio]",DeepRadio.Success, " Config initialized.")

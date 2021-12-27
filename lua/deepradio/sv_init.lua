@@ -4,8 +4,10 @@ util.AddNetworkString("DeepRadio:SendMessage")
 
 do
     for job,_ in pairs(DeepRadio.Jobs) do
+        if DeepRadio.CustomPrefixes[job] then continue end
+
         local prfx = ""
-        if #prfx <= 3 then
+        if #job <= 3 then
             prfx = job
         else
             prfx = string.sub(job,1,3)
@@ -46,7 +48,7 @@ hook.Add("PlayerSay", "DeepRadio", function(ply,txt,tc)
 
     net.Start("DeepRadio:SendMessage")
         net.WriteString(cmd)
-        net.WriteString(DeepRadio.Prefixes[cmd])
+        net.WriteString(DeepRadio.CustomPrefixes[cmd] or DeepRadio.Prefixes[cmd])
         net.WriteString(ply:Name())
         net.WriteString(message)
     net.Send(sendto)
