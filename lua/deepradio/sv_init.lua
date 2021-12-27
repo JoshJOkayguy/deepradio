@@ -4,7 +4,12 @@ util.AddNetworkString("DeepRadio:SendMessage")
 
 do
     for job,_ in pairs(DeepRadio.Jobs) do
-        local prfx = string.sub(job,1,3)
+        local prfx = ""
+        if #prfx <= 3 then
+            prfx = job
+        else
+            prfx = string.sub(job,1,3)
+        end
         DeepRadio.Prefixes[job] = string.upper(prfx)
     end
 end
